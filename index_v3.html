@@ -9,48 +9,45 @@
 </head>
 
 <body>
-    <div>
+    <div id="game" style="margin: 0px, auto" ;>
+        <!-- <img src="../images/9-RPS-example.png" /> -->
+        <br>
+        <br>
         <h1>Psychic Game</h1>
-    </div>
-    <div>
-        <h2>
-            Guess what letter I'm thinking of. Type a letter on the keyboard to start game.
-        </h2>
-    </div>
-    <div>
-        <h4>
-            Wins:
+        <h2>To get started press r, p, or s.</h2>
+        <div>
+            <p>User guessed:
+                <span id="user-guess">0</span>
+            </p>
+            <!-- <span id="user-guess"></span> -->
+        </div>
+        <div>
+            <p>Computer Guessed:
+                <span id="computer-guess"></span>
+            </p>
+        </div>
+        <div>Wins:
             <span id="wins"></span>
-        </h4>
-    </div>
-    <div>
-        <h4>
-            Losses:
+        </div>
+        <div>Losses:
             <span id="losses"></span>
-        </h4>
+        </div>
+        <div>Ties:
+            <span id="ties"></span>
+        </div>
+        <div>Guesses Left:
+            <span id="guessesLeft">9</span>
+        </div>
     </div>
-    <div>
-        <h4>
-            Guesses Left:
-            <span id="guessesLeft"></span>
-        </h4>
-    </div>
-    <div>
-        <h4>
-            Guesses so far:
-            <span id=""></span>
-        </h4>
-    </div>
-
-
 
     <script type="text/javascript">
 
-        var scoreWins = 0;
-        var scoreLosses = 0;
+        // Creates an array that lists out all of the options (Rock, Paper, or Scissors).
+        var computerChoices = ["r", "p", "s"];
+        var wins = 0;
+        var losses = 0;
+        var ties = 0;
         var guessesLeft = 9;
-        var userGuess;
-        var computerChoices = ["r", "p"];
 
         // This function is run whenever the user presses a key.
         document.onkeyup = function (event) {
@@ -62,13 +59,17 @@
             var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
 
             if (userGuess == computerGuess) {
-                ties++;
+                wins++;
+                guessesLeft--;
 
                 document.getElementById("user-guess").innerHTML = userGuess;
                 document.getElementById("computer-guess").innerHTML = computerGuess;
                 document.getElementById("wins").innerHTML = wins;
                 document.getElementById("losses").innerHTML = losses;
                 document.getElementById("ties").innerHTML = ties;
+                document.getElementById("guessesLeft").innerHTML = losses;
+                guessesLeft--;
+
             }
             if (userGuess == 'r' && computerGuess == 'p') {
                 losses++;
@@ -119,14 +120,8 @@
                 document.getElementById("ties").innerHTML = ties;
             }
 
-
         };
-
-
-
-
     </script>
-
 
 
 </body>

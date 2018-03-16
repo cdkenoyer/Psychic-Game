@@ -30,15 +30,14 @@
         </h4>
     </div>
     <div>
-        <h4>
-            Guesses Left:
+        <h4>Guesses Left:
             <span id="guessesLeft"></span>
         </h4>
     </div>
     <div>
         <h4>
             Guesses so far:
-            <span id=""></span>
+            <span id="ties"></span>
         </h4>
     </div>
 
@@ -46,11 +45,11 @@
 
     <script type="text/javascript">
 
-        var scoreWins = 0;
-        var scoreLosses = 0;
-        var guessesLeft = 9;
-        var userGuess;
         var computerChoices = ["r", "p"];
+        var wins = 0;
+        var losses = 0;
+        var guessesLeft = 9;
+        var userGuess = 0;
 
         // This function is run whenever the user presses a key.
         document.onkeyup = function (event) {
@@ -119,9 +118,7 @@
                 document.getElementById("ties").innerHTML = ties;
             }
 
-
         };
-
 
 
 
